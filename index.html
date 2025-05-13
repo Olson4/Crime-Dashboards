@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Economics of Crime Dashboards</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #c6f0f7, #fdfdff);
+    }
+    .about-section {
+      background: linear-gradient(to right, #ffffff, #f0f9ff);
+      border-left: 8px solid #4b6cb7;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    nav select {
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background-color: #ffffff;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    .dashboard-section {
+      background: linear-gradient(to top left, #ffffff, #f2f9ff);
+      border: 1px solid #e1eaf4;
+    }
+    .dashboard-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      border-bottom: 2px solid #dbe5f0;
+      padding-bottom: 0.5rem;
+    }
+    a {
+      color: #4b6cb7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    header {
+  background: linear-gradient(to right, #2c3e50, #4b6cb7);
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+    nav {
+  background: #34495e;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+    nav label, nav select {
+      color: #ddd;
+      margin: 0 1rem;
+      font-size: 1rem;
+    }
+    nav a:hover { color: white; text-decoration: underline; }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .dashboard-section {
+      background-color: white;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .dashboard-section:hover {
+      transform: scale(1.01);
+    }
+    .dashboard-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    .dashboard-section img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .dashboard-text {
+      white-space: pre-wrap;
+      margin-bottom: 1.5rem;
+    }
+    .about-section {
+      background-color: #ffffff;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+    footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+  </style>
+  <script>
+    function filterDashboard(value) {
+      const sections = document.querySelectorAll('.dashboard-section');
+      sections.forEach(section => {
+        const fullText = section.querySelector('.dashboard-text');
+        const briefText = section.querySelector('.dashboard-brief');
+
+        if (value === 'all') {
+          section.style.display = 'block';
+          if (fullText) fullText.style.display = 'none';
+          if (briefText) briefText.style.display = 'block';
+        } else if (section.id === value) {
+          section.style.display = 'block';
+          if (fullText) fullText.style.display = 'block';
+          if (briefText) briefText.style.display = 'none';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    }
+    window.onload = () => filterDashboard('all');
+  </script>
+</head>
+<body style="background: linear-gradient(to bottom, #f0f4f8, #ffffff);">
+  <header>
+    <h1>Economics of Crime: Data Dashboards</h1>
+    <p>By Matthias Olson</p>
+  </header>
+  <nav>
+    <label for="dashboard-select" style="color:white;">Select a project to view full write-up and dashboard:</label>
+    <select id="dashboard-select" onchange="filterDashboard(this.value)">
+      <option value="all">Show All</option>
+      <option value="fatal">Fatal Police Pursuits</option>
+      <option value="terror">Terrorism Patterns</option>
+      <option value="gun">Gun Violence</option>
+      <option value="crime">U.S. Crime Trends</option>
+      <option value="incarceration">Incarceration Rates</option>
+      <option value="campus">Campus Crime</option>
+    </select>
+  </nav>
+
+  <main class="container">
+    <section class="about-section">
+  <h2>About Me</h2>
+  <p>I'm a Junior at Pomona College majoring in Economics. I play wide receiver on the Pomona football team and have a strong interest in public policy, data, and social justice. You can reach me at <a href="mailto:mlos2022@mymail.pomona.edu">mlos2022@mymail.pomona.edu</a>.</p>
+  <p>If you'd like to explore and interact with the full Tableau visualizations from these dashboards, you can visit my public profile here: <a href="https://public.tableau.com/app/profile/matthias.olson/vizzes" target="_blank">View My Tableau Dashboards</a>.</p>
+</section>
+
+    
+  
+  <!-- Project sections go here -->
+  $1
+<p>Fatal Police Pursuits in America: A Data-Driven Analysis (2017–2021)
+
+Matthias Olson  
+Professor Cameron  
+Pomona College – Economics of Crime  
+4/30/2025
+
+In recent years, growing public attention has focused on the often-deadly consequences of police interactions, but one area that remains key is the fatality risk associated with police vehicle pursuits. These high-speed chases, sometimes initiated as a result of minor infractions, can often escalate quickly and end in fatality. Many of the fatalities associated with police vehicle pursuits aren’t just those being pursued, but also passengers, bystanders, and even police officers themselves. Furthermore, we see that Black and Latino individuals are disproportionately affected, raising urgent questions about how race, geography, and decision-making shape deadly outcomes...
+
+[Full paper text continues here as extracted]</p>
+</div>
+  </section>
+<section id="gun" class="dashboard-section">
+  <h2>Gun Violence Dashboard</h2>
+  <img src="gun-violence.png" alt="Gun Violence Dashboard">
+  <div class="dashboard-text"><p>Matthias Olson  
+Professor Cameron  
+Economics of Crime  
+March 12, 2025
+
+Gun violence is a highly debated and pressing issue in the United States, and with increasing rates of firearm deaths, injuries, and mass shootings, a deeper understanding is essential for informed public policy decisions. This project draws on the Gun Violence Archive data from 2014 to 2017 and utilizes Tableau dashboards to visualize population-adjusted firearm injuries and deaths across the U.S.
+
+A hex map reveals that southern states like Louisiana and Alabama consistently report higher rates of firearm incidents per capita, whereas northeastern states like Rhode Island and Massachusetts tend to have lower rates. The calendar heatmap visualization further uncovers that weekends and summer months witness heightened gun violence incidents, potentially correlating with social events and outdoor activities. 
+
+The bump chart ranking states by annual impact highlights shifts in top offenders, illustrating, for instance, that Alaska’s rankings fluctuate while Louisiana remains consistently high. These findings underscore the regional and temporal nature of gun violence, reinforcing the need for both localized and time-sensitive intervention strategies. 
+
+By translating raw data into accessible visual patterns, this project supports a clearer, data-driven understanding of gun violence trends. The intention is not only to inform readers but to stimulate public discussion and contribute to policy development focused on reducing gun-related harm across the country.</p>
+</section>
+
+<section id="crime" class="dashboard-section">
+  <h2>U.S. Crime Trends Dashboard</h2>
+  <img src="crime-rates.png" alt="U.S. Crime Trends Dashboard">
+  <div class="dashboard-text"><p>Matthias Olson  
+Professor Cameron  
+Economics of Crime  
+March 26, 2025
+
+This dashboard explores changes in violent and property crime in the United States using publicly available FBI data. Using Tableau, I created visualizations to identify regional patterns and long-term trends in these crime categories. The report specifically highlights how crime rates have changed across census regions and within the state of South Carolina from 1960 to 2022.
+
+The first chart shows violent crime trends by region, clearly indicating that the South has historically experienced higher violent crime rates compared to other regions. Property crime has followed a similar trajectory across regions, though rates have declined significantly since their peak in the early 1990s. 
+
+One of the most striking insights comes from the South Carolina focus section, where burglary and larceny have both declined over the past three decades. Despite South Carolina's reputation for high crime, the data indicates substantial improvement.
+
+Finally, a state-by-state scatter plot provides a snapshot of how each state currently ranks in terms of both violent and property crime. The insights generated here allow policymakers and researchers to make meaningful comparisons and to target reforms to the areas most in need.
+
+By organizing complex datasets into accessible visual formats, this project supports a more nuanced understanding of crime dynamics in the U.S. and emphasizes the importance of disaggregating data by time and geography to inform public safety efforts.</p>
+</section>
+
+<section id="incarceration" class="dashboard-section">
+  <h2>Incarceration Trends Dashboard</h2>
+  <img src="incarceration-rates.png" alt="Incarceration Trends Dashboard">
+  <div class="dashboard-text"><p>Matthias Olson  
+Professor Cameron  
+Economics of Crime  
+April 16, 2025
+
+Using county-level data from the Vera Institute of Justice’s Incarceration Trends Dataset, this dashboard examines South Carolina’s jail and prison incarceration rates. The data spans from 1970 to 2018, covering changes in incarceration for rural and urban counties alike. Tableau visualizations help reveal which counties are driving the state’s high incarceration rates and whether trends differ by population density.
+
+The choropleth maps show that some rural counties, such as Allendale and McCormick, have exceptionally high incarceration rates, particularly in jails. Conversely, counties like Charleston and Greenville show more moderate incarceration patterns. These spatial differences suggest that local policy and enforcement practices play a major role in incarceration trends.
+
+Stacked area charts track the evolution of incarceration over time. While both prison and jail populations peaked in the mid-2000s, they have declined slightly in recent years, aligning with national decarceration efforts.
+
+This project reinforces the idea that incarceration in the U.S. is not only shaped by federal and state policy but also by localized legal structures. Effective reform must consider this variation if it hopes to meaningfully reduce incarceration rates. Presenting these insights visually allows for clearer identification of disparities and more targeted recommendations for reform.</p>
+</section>
+
+<section id="campus" class="dashboard-section">
+  <h2>Campus Crime Dashboard</h2>
+  <img src="campus-crimes.png" alt="Campus Crime Dashboard">
+  <div class="dashboard-text"><p>Matthias Olson  
+Professor Cameron  
+Economics of Crime  
+April 30, 2025
+
+This dashboard investigates reported crimes at five major universities in South Carolina: USC, Clemson, Coastal Carolina, College of Charleston, and Winthrop University. Using Clery Act data on sexual misconduct, aggravated assault, and burglary, the dashboard allows for comparative analysis using rates per 100,000 students.
+
+The line graph of sexual misconduct over time shows inconsistent but alarming spikes in reports. Coastal Carolina, for example, experienced a sudden jump in 2019. Similarly, the treemap ranking universities by average aggravated assault per 100,000 students reveals Coastal Carolina to be a consistent outlier.
+
+Burglary data suggests housing-related risks are higher at universities with less secure dormitories or those located in more urban areas. The bar chart makes these differences clear by showing a wide gap between the highest and lowest burglary rates.
+
+Taken together, these dashboards demonstrate that campus crime varies significantly across institutions, even within the same state. They also emphasize the importance of context—enrollment size, reporting culture, and campus security policies all play a role. Policymakers and campus administrators can use these insights to identify vulnerable populations and allocate resources more effectively.</p>
+</section>
+
+<section id="terror" class="dashboard-section">
+  <h2>Global Terrorism Dashboard</h2>
+  <img src="global-terrorism.png" alt="Global Terrorism Dashboard">
+  <div class="dashboard-text">
+    <p>This global terrorism dashboard visualizes regional and temporal trends in terrorist activity (1970–2019), showing variation in attack types and regional prevalence using bubble and stacked area charts from the Global Terrorism Database. The goal is to understand how violence manifests across regions, time, and tactics. Bombings and assassinations dominate in some regions, while hostage-taking and armed assault are more prominent in others. By examining these differences, the dashboard helps highlight both global patterns and regional nuance in terrorist activity.</p>
+  </div>
+</section>
+</main>
+
+  <footer>
+    &copy; 2025 Matthias Olson. All rights reserved.
+  </footer>
+</body>
+</html>
