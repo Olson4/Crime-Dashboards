@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Economics of Crime Dashboards</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #1a252f;
+      padding: 0.5rem 2rem;
+      text-align: center;
+    }
+    nav label, nav select {
+      color: #ddd;
+      margin: 0 1rem;
+      font-size: 1rem;
+    }
+    nav a:hover { color: white; text-decoration: underline; }
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .dashboard-section {
+      background-color: white;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease;
+    }
+    .dashboard-section:hover {
+      transform: scale(1.01);
+    }
+    .dashboard-section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+    .dashboard-section img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .dashboard-text {
+      white-space: pre-wrap;
+      margin-bottom: 1.5rem;
+    }
+    .about-section {
+      background-color: #ffffff;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+  <script>
+    function filterDashboard(value) {
+      const sections = document.querySelectorAll('.dashboard-section');
+      sections.forEach(section => {
+        const fullText = section.querySelector('.dashboard-text');
+        const briefText = section.querySelector('.dashboard-brief');
+
+        if (value === 'all') {
+          section.style.display = 'block';
+          if (fullText) fullText.style.display = 'none';
+          if (briefText) briefText.style.display = 'block';
+        } else if (section.id === value) {
+          section.style.display = 'block';
+          if (fullText) fullText.style.display = 'block';
+          if (briefText) briefText.style.display = 'none';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+    }
+    window.onload = () => filterDashboard('all');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Economics of Crime: Data Dashboards</h1>
+    <p>By Matthias Olson</p>
+  </header>
+  <nav>
+    <label for="dashboard-select" style="color:white;">Select a Project:</label>
+    <select id="dashboard-select" onchange="filterDashboard(this.value)">
+      <option value="all">Show All</option>
+      <option value="fatal">Fatal Police Pursuits</option>
+      <option value="terror">Terrorism Patterns</option>
+      <option value="gun">Gun Violence</option>
+      <option value="crime">U.S. Crime Trends</option>
+      <option value="incarceration">Incarceration Rates</option>
+      <option value="campus">Campus Crime</option>
+    </select>
+  </nav>
+
+  <main class="container">
+    <section class="about-section">
+      <h2>About Me</h2>
+      <p>I'm a Junior at Pomona College majoring in Economics. I play wide receiver on the Pomona football team and have a strong interest in public policy, data, and social justice. You can reach me at <a href="mailto:mlos2022@mymail.pomona.edu">mlos2022@mymail.pomona.edu</a>.</p>
+    </section>
+
+    <section id="fatal" class="dashboard-section">
+      <h2>Fatal Police Pursuits Dashboard</h2>
+      <p class="dashboard-brief">This dashboard examines fatal police pursuits across the U.S. by race, location, and cause of pursuit.</p>
+      <div class="dashboard-text" style="display:none">
+        <p>In recent years, growing public attention has focused on the often-deadly consequences of police interactions, but one area that remains key is the fatality risk associated with police vehicle pursuits. This project explores these fatal pursuits in terms of racial disparities, geographic distribution, and types of offenses involved, utilizing calendar heatmaps and treemaps to show how risk varies.</p>
+      </div>
+      <img src="fatal-police-pursuits.png" alt="Fatal Police Pursuits Dashboard">
+    </section>
+
+    <section id="terror" class="dashboard-section">
+      <h2>Global Terrorism Dashboard</h2>
+      <p class="dashboard-brief">This dashboard explores trends in terrorist activity from 1970–2019 by region, method, and frequency.</p>
+      <div class="dashboard-text" style="display:none">
+        <p>This global terrorism dashboard visualizes regional and temporal trends in terrorist activity (1970–2019), showing variation in attack types and regional prevalence using bubble and stacked area charts from the Global Terrorism Database.</p>
+      </div>
+      <img src="global-terrorism.png" alt="Global Terrorism Dashboard">
+    </section>
+
+    <section id="gun" class="dashboard-section">
+      <h2>Gun Violence Dashboard</h2>
+      <p class="dashboard-brief">Analyzes gun violence patterns by state, weekday, and season between 2014–2017.</p>
+      <div class="dashboard-text" style="display:none">
+        <p>Gun violence remains a deeply entrenched issue in the United States, affecting communities in a variety of different ways depending on factors such as when and where incidents occur. This project analyzes these variations and provides a clear look at impact rates across different time frames and geographic areas.</p>
+      </div>
+      <img src="gun-violence.png" alt="Gun Violence Dashboard">
+    </section>
+
+    <section id="crime" class="dashboard-section">
+      <h2>U.S. Crime Trends Dashboard</h2>
+      <p class="dashboard-brief">Tracks national crime rates by type and region from 1960–2022.</p>
+      <div class="dashboard-text" style="display:none">
+        <p>Understanding crime trends in the United States requires a comprehensive analysis of both historical data and regional patterns. This project maps those patterns using FBI data, with particular attention to South Carolina and property crime fluctuations over time.</p>
+      </div>
+      <img src="us-crime-trends.png" alt="U.S. Crime Trends Dashboard">
+    </section>
+
+    <section id="incarceration" class="dashboard-section">
+      <h2>Incarceration Trends Dashboard</h2>
+      <p class="dashboard-brief">Visualizes jail and prison incarceration by county across South Carolina.</p>
+      <div class="dashboard-text" style="display:none">
+        <p>The incarceration rate in the U.S. declined from 2019 to the lowest level since 1995. This dashboard investigates local disparities in South Carolina, highlighting how rural-urban divides, local law enforcement policy, and socioeconomic status affect incarceration rates at the county level.</p>
+      </div>
+      <img src="incarceration-rates.png" alt="Incarceration Trends Dashboard">
+    </section>
+
+    <section id="campus" class="dashboard-section">
+      <h2>Campus Crime Dashboard</h2>
+      <p class="dashboard-brief">Compares crime stats at major South Carolina universities, normalized per 100k students.</p>
+      <div class="dashboard-text" style="display:none">
+        <p>This dashboard focuses on sexual misconduct, aggravated assault, and burglary trends from the five largest universities in South Carolina. It explores normalized statistics, revealing sharp contrasts in campus safety and crime reporting practices.</p>
+      </div>
+      <img src="campus-crime.png" alt="Campus Crime Dashboard">
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Matthias Olson. All rights reserved.
+  </footer>
+</body>
+</html>
